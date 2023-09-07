@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Log in / Register</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
+</head>
+
+<body>
+    {% if uname %}
+    <a>
+        Hello, {{uname}}!
+        Nice to see you back current time is: {{time}}
+    </a>
+    <div class="container">
+        <form action="/" method="post" enctype=multipart/form-data>
+            <p>
+                <label for="uname">Username: </label>
+                <input type="text" id="uname" name="uname" placeholder="Your name">
+            </p>
+            <p>
+                <label for="upass">Password:</label>
+                <input type="text" id="upass" name="upass" placeholder="Your password">
+            </p>
+            <p>
+                <button type="submit" value="Send">
+                    Continue
+                </button>
+            </p>
+        </form>
+    </div>
+    <div>
+        <p>
+            <form action="/" method="post" enctype=multipart/form>
+                <button type="submit" name="delete" value="Del">
+                    Enter this button to delete cookies.
+                </button>
+            </form>
+        </p>
+    </div>
+    {% else %}
+    <div>
+        <p>
+            Hello, anon!
+            You need to register to gain accsess to the site.
+        </p>
+    </div>
+    <div class="container">
+        <form action="/" method="post">
+            <p>
+                <label for="ufname">Username:</label>
+                <input type="text" id="uname" name="uname" placeholder="Your username">
+            </p>
+            <p>
+                <label for="uemail">Email: </label>
+                <input type="text" id="uemail" name="uemail" placeholder="Your email address">
+            </p>
+            <p>
+                <label for="upass">Password: </label>
+                <input type="text" id="upass" name="upass" placeholder="Your password">
+            </p>
+            <button type="submit" value="Send">
+                Confirm
+            </button>
+        </form>
+    </div>
+    {% endif %}
+</body>
